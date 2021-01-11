@@ -45,3 +45,48 @@ where city regexp "[^aeiou]$" ;
 ```SQL
 Select distinct city from Station
 where city regexp '^[^aeiou]|[^aeiou]$' ;
+```
+## Weather Observation Station 12
+```SQL
+Select distinct city from station
+where city regexp '^[^aeiou].*[^aeiou]$' ;
+```
+## Higher Than 75 Marks
+```SQL
+Select Name from students
+where marks > 75
+order by right(name,3) ,id ;
+```
+## Employees Names
+```SQL
+Select name from employee
+order by name asc ;
+```
+## Employee Salaries
+```SQL
+Select name from emplyee
+where salary > 2000 and months < 10
+order by employee_id asc ;
+```
+## Type of Triangle
+```SQL
+Select CASE
+When 2*greatest(A,B,C) >= (A+B+C) Then "Not A Triangle"
+When A = B and A = c Then "Equilateral"
+When A = B or B = C or A = C Then "Isosceles"
+Else "Scalene"
+End
+from Triangles ;
+```
+## The Pads
+```SQL
+Select concat(name ,'(',left(occupation),')') from occupations
+order by name ;
+Select concat('There are a total of ',count(occupation),' ',lower(occupation),'s.') from occupations
+group by occupation
+order by count(occupation) ;
+```
+## Revising Aggregations - The Count
+```SQL
+Select count(name) from city where population > 100000;
+```
