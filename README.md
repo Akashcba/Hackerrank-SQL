@@ -265,7 +265,9 @@ order by a.x asc ;
 ### The 2nd part matches the remaining mirrored pairs. It's important to note that for this challenge, the mirrored match of (a.x,b.y) is considered a duplicate and excluded from the final output. You can see this in the sample output where (20, 21) is outputted, but not (21,20). The 'or a.x < a.y' criteria allows us to pull all those pairs where a.x does not equal a.y, but where a.x is also less than a.y so we don't end up with the mirrored paired duplicate.
 
 
-
+##
+##
+##
 # Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
