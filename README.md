@@ -251,7 +251,7 @@ where (wands_property.age, wands.power, wands.coins_needed) in (
     group by wands_property.age ,wands.power)
 order by wands.power desc, wands_property.age desc ;
 ```
-## []()
+## [Symmetric Pairs](https://www.hackerrank.com/challenges/symmetric-pairs/problem)
 ```SQL
 Select a.x, a.y
 from functions a, functions b
