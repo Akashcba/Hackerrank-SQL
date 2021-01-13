@@ -90,3 +90,5 @@ order by count(occupation) ;
 ```SQL
 Select count(name) from city where population > 100000;
 ```
+## [Revising Aggregations - The Sum Function](https://www.hackerrank.com/challenges/revising-aggregations-sum/problem)
+```SQL
