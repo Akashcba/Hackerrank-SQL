@@ -217,5 +217,11 @@ group by country.continent ;
 ## [Draw The Triangle 1](https://www.hackerrank.com/challenges/draw-the-triangle-1/problem)
 ```SQL
 set @number = 21;
-select repeat('*', @number := number - 1) from information_schema.tables ;
+select repeat('* ', @number := @number - 1) from information_schema.tables ;
+```
+## [Draw The Triangle 2](https://www.hackerrank.com/challenges/draw-the-triangle-2/problem)
+```SQL
+set @number = 0 ;
+select repeat('* ', @number := @number + 1) from information_schema.tables
+where @number < 20;
 ```
