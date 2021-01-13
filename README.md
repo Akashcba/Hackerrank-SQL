@@ -225,3 +225,5 @@ set @number = 0 ;
 select repeat('* ', @number := @number + 1) from information_schema.tables
 where @number < 20;
 ```
+Think of the information_schema.tables as a dummy table with no real use in the statement except to satisfy the MySQL condition that every SELECT must have a FROM ;
+Also, it contains as many rows as you could possibly need so it is a neat trick for incrementing variables. Just select the incrementing variable and specify the where condition on your incrementing variable.
