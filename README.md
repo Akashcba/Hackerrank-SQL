@@ -251,3 +251,15 @@ where (wands_property.age, wands.power, wands.coins_needed) in (
     group by wands_property.age ,wands.power)
 order by wands.power desc, wands_property.age desc ;
 ```
+## []()
+```SQL
+Select a.x, a.y
+from functions a, functions b
+where a.x = b.y and a.y = b.x
+group by a.x, a.y
+having count(a.x) > 1 or a.x<a.y
+order by a.x asc ;
+```
+### The criteria in the having clause allows us to prevent duplication in our output while still achieving our goal of finding mirrored pairs. We have to treat our pairs where a.x = a.y and a.x <> a.y differently to capture both. The first criteria handles pairs where a.x = a.y and the 2nd criteria handles pairs where a.x <> a.y, which is why the or operator is used.
+### The first part captures records where a.x = a.y. The 'count(a.x) > 1' requires there to be at least two records of a mirrored pair to be pulled through. Without this a pair would simply match with itself (since it's already it's own mirrored pair) and be pulled through incorrectly when you join the table on itself.
+### The 2nd part matches the remaining mirrored pairs. It's important to note that for this challenge, the mirrored match of (a.x,b.y) is considered a duplicate and excluded from the final output. You can see this in the sample output where (20, 21) is outputted, but not (21,20). The 'or a.x < a.y' criteria allows us to pull all those pairs where a.x does not equal a.y, but where a.x is also less than a.y so we don't end up with the mirrored paired duplicate.
