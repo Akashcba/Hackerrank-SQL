@@ -237,3 +237,17 @@ having sum(sign(1-sign(x.lat_n - y.lat_n))) = (count(*)+1)/2 ;
 ```
 #### Having Clause was used because the WHERE keyword cannot be used with aggregate functions.
 #### Sign() Function returns the sign of the number.
+
+## [Ollivander's Inventory](https://www.hackerrank.com/challenges/harry-potter-and-wands/problem)
+```SQL
+select wands.id , wands_property.age, wands.coins_needed ,wands.power
+from wands join wands_property
+on wands.code = wands_property.code
+where (wands_property.age, wands.power, wands.coins_needed) in (
+    select wands_property.age , wands.power, min(wands.coins_needed)
+    from wands join wands_property
+    on wands.code = wands_property.code
+    where is_evil = 0
+    group by wands_property.age ,wands.power)
+order by wands.power desc, wands_property.age desc ;
+```
