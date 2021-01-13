@@ -235,5 +235,5 @@ select round(x.lat_n,4) from station x, station y
 group by x.lat_n
 having sum(sign(1-sign(x.lat_n - y.lat_n))) = (count(*)+1)/2 ;
 ```
-<**** Having Clause was used because the WHERE keyword cannot be used with aggregate functions.
-Sign() Function returns the sign of the number. ****>
+#### Having Clause was used because the WHERE keyword cannot be used with aggregate functions.
+#### Sign() Function returns the sign of the number.
