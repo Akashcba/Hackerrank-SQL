@@ -227,3 +227,13 @@ where @number < 20;
 ```
 Think of the information_schema.tables as a dummy table with no real use in the statement except to satisfy the MySQL condition that every SELECT must have a FROM ;
 Also, it contains as many rows as you could possibly need so it is a neat trick for incrementing variables. Just select the incrementing variable and specify the where condition on your incrementing variable.
+
+## [Weather Observation Station 20](https://www.hackerrank.com/challenges/weather-observation-station-20/problem)
+### Code To Find Median
+```SQL
+select round(x.lat_n,4) from station x, station y
+group by x.lat_n
+having sum(sign(1-sign(x.lat_n - y.lat_n))) = (count(*)+1)/2 ;
+```
+<**** Having Clause was used because the WHERE keyword cannot be used with aggregate functions.
+Sign() Function returns the sign of the number. ****>
